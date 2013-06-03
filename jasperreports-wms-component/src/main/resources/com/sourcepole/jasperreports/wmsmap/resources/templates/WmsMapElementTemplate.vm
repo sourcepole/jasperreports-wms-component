@@ -1,0 +1,12 @@
+<div 
+#if(${xhtml})
+	style='position: absolute; left: ${elementX}; top: ${elementY}; width: ${elementWidth}px; height: ${elementHeight}px;
+#else
+	style='width: ${elementWidth}px; height: ${elementHeight}px;
+#end
+	#if(${backgroundColor}) 
+		background-color: \#${backgroundColor};
+	#end
+'>
+	<img id='${mapElementId}' src="${wmsMapUrl}" style='width: 100%; height: 100%; overflow: auto' />
+</div>

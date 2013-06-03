@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+  targetNamespace="http://sourcepole.com/jasperreports/components" 
+  xmlns:jr="http://jasperreports.sourceforge.net/jasperreports" 
+  elementFormDefault="qualified">
+  
+  <import namespace="http://jasperreports.sourceforge.net/jasperreports" />
+  
+  <element name="wmsmap" substitutionGroup="jr:component">
+    <complexType>
+      <complexContent>
+        <extension base="jr:componentType">
+          <sequence>
+            <element name="bboxExpression">
+              <complexType mixed="true" />
+            </element>
+            <element name="layersExpression">
+              <complexType mixed="true" />
+            </element>
+            <element name="stylesExpression">
+              <complexType mixed="true" />
+            </element>
+          </sequence>
+          <attribute name="wmsServiceUrl" type="string" use="required" />
+          <attribute name="wmsVersion" type="string" default="1.1.1"/>
+          <attribute name="srs" type="string" use="required" />
+          <attribute name="imageType" type="string" use="optional" default="image/png" />
+          <attribute name="transparent" type="boolean" use="optional" default="false" />
+        </extension>
+      </complexContent>
+    </complexType>
+  </element>
+  
+</schema>
