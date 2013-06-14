@@ -1,6 +1,5 @@
 package com.sourcepole.jasperreports.wmsmap.fill;
 
-import net.sf.jasperreports.components.map.MapPrintElement;
 import net.sf.jasperreports.engine.JRComponentElement;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRGenericPrintElement;
@@ -14,6 +13,7 @@ import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 
 import com.sourcepole.jasperreports.wmsmap.WmsMapComponent;
 import com.sourcepole.jasperreports.wmsmap.WmsMapPrintElement;
+import com.sourcepole.jasperreports.wmsmap.WmsMapRequest;
 import com.sourcepole.jasperreports.wmsmap.type.WmsMapImageTypeEnum;
 
 public class WmsMapFillComponent extends BaseFillComponent {
@@ -25,6 +25,14 @@ public class WmsMapFillComponent extends BaseFillComponent {
   private WmsMapImageTypeEnum imageType;
 
   JRFillObjectFactory factory;
+
+  private String wmsServiceUrl;
+
+  private Boolean transparent;
+
+  private String wmsVersion;
+
+  private String srs;
 
   public WmsMapFillComponent(WmsMapComponent map) {
     this.mapComponent = map;
@@ -47,6 +55,11 @@ public class WmsMapFillComponent extends BaseFillComponent {
   }
 
   protected void evaluateMap(byte evaluation) throws JRException {
+    wmsServiceUrl = mapComponent.getWmsServiceUrl();
+    wmsVersion = mapComponent.getWmsVersion();
+    srs = mapComponent.getSrs();
+    transparent = mapComponent.getTransparent();
+
     bbox = (String) fillContext.evaluate(mapComponent.getBBoxExpression(),
         evaluation);
     layers = (String) fillContext.evaluate(mapComponent.getLayersExpression(),
@@ -72,7 +85,7 @@ public class WmsMapFillComponent extends BaseFillComponent {
     JRTemplateGenericElement template = new JRTemplateGenericElement(
         fillContext.getElementOrigin(),
         fillContext.getDefaultStyleProvider(),
-        MapPrintElement.MAP_ELEMENT_TYPE);
+        WmsMapPrintElement.WMS_MAP_ELEMENT_TYPE);
     template = deduplicate(template);
 
     JRTemplateGenericPrintElement printElement = new JRTemplateGenericPrintElement(
@@ -102,14 +115,22 @@ public class WmsMapFillComponent extends BaseFillComponent {
 
   protected void copy(JRGenericPrintElement printElement)
   {
-    printElement.setParameterValue(WmsMapPrintElement.PARAMETER_BBOX, bbox);
-    printElement.setParameterValue(WmsMapPrintElement.PARAMETER_LAYERS, layers);
+    printElement.setParameterValue(
+        WmsMapRequest.Parameter.WMS_URL.name(), wmsServiceUrl);
+    printElement.setParameterValue(WmsMapRequest.Parameter.VERSION.name(),
+        wmsVersion);
+    printElement.setParameterValue(WmsMapRequest.Parameter.SRS.name(), srs);
+    printElement.setParameterValue(WmsMapRequest.Parameter.TRANSPARENT.name(),
+        transparent);
+    printElement.setParameterValue(WmsMapRequest.Parameter.BBOX.name(), bbox);
+    printElement.setParameterValue(WmsMapRequest.Parameter.LAYERS.name(),
+        layers);
     if (styles != null) {
-      printElement.setParameterValue(WmsMapPrintElement.PARAMETER_STYLES,
+      printElement.setParameterValue(WmsMapRequest.Parameter.STYLE.name(),
           styles);
     }
     if (imageType != null) {
-      printElement.setParameterValue(WmsMapPrintElement.PARAMETER_IMAGE_TYPE,
+      printElement.setParameterValue(WmsMapRequest.Parameter.FORMAT.name(),
           imageType.getName());
     }
   }

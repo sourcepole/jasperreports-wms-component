@@ -43,6 +43,12 @@ public class WmsMapCompiler implements ComponentCompiler {
             + evaluationGroup + " not found", map);
       }
     }
+
+    String wmsServiceUrl = map.getWmsServiceUrl();
+    if (wmsServiceUrl == null || wmsServiceUrl.trim().isEmpty()) {
+      verifier.addBrokenRule("WMS Service URL not set for map", map);
+    }
+
   }
 
 }

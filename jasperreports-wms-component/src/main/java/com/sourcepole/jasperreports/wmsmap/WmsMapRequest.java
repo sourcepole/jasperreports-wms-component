@@ -19,7 +19,7 @@ public class WmsMapRequest {
 
   private static final String UTF_8 = "UTF-8";
 
-  static enum Parameter {
+  public static enum Parameter {
 
     /** Parameter for the WMS service base URL. */
     WMS_URL(true, null),

@@ -17,7 +17,7 @@
             <element name="layersExpression">
               <complexType mixed="true" />
             </element>
-            <element name="stylesExpression">
+            <element name="stylesExpression" minOccurs="0">
               <complexType mixed="true" />
             </element>
           </sequence>
