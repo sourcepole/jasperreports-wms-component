@@ -1,0 +1,6 @@
+id=wmsmap
+name=wmsmap
+tooltip=wmsmap_component
+icon16=com/sourcepole/ireport/components/wmsmap/wmsmap-16.png
+icon32=com/sourcepole/ireport/components/wmsmap/wmsmap-32.png
+action=com.sourcepole.ireport.components.wmsmap.CreateWmsMapAction
