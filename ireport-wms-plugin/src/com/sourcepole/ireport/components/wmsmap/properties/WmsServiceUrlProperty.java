@@ -48,7 +48,7 @@ public class WmsServiceUrlProperty extends StringProperty {
       try {
         new URL(value.toString());
       } catch(MalformedURLException e) {
-        throw new IllegalArgumentException("Must be a valid URL");
+        throw new IllegalArgumentException("A valid URL is expected");
       }
     }
   }
