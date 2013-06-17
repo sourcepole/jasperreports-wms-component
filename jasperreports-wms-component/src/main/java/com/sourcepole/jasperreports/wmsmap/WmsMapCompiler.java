@@ -50,6 +50,11 @@ public class WmsMapCompiler implements ComponentCompiler {
       verifier.addBrokenRule("WMS Service URL not set for map", map);
     }
 
+    String srs = map.getSrs();
+    if (srs == null || srs.trim().isEmpty()) {
+      verifier.addBrokenRule("SRS/CRS not set for map", map);
+    }
+
     verifyExpression(verifier, map, map.getBBoxExpression(), "BBox");
     verifyExpression(verifier, map, map.getLayersExpression(), "Layers");
   }
