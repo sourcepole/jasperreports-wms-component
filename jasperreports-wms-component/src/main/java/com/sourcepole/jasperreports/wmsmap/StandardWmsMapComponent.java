@@ -49,10 +49,13 @@ public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
   public static final String PROPERTY_SRS = "srs";
   public static final String PROPERTY_TRANSPARENT = "transparent";
   public static final String PROPERTY_IMAGE_TYPE = "imageType";
+  public static final String PROPERTY_URL_PARAMETERS_EXPRESSION =
+      "urlParamatersExpression";
 
   private JRExpression bboxExpression;
   private JRExpression layersExpression;
   private JRExpression stylesExpression;
+  private JRExpression urlParametersExpression;
   private EvaluationTimeEnum evaluationTime = EvaluationTimeEnum.NOW;
   private String evaluationGroup;
   private String wmsServiceUrl;
@@ -78,6 +81,8 @@ public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
     this.wmsServiceUrl = map.getWmsServiceUrl();
     this.wmsVersion = map.getWmsVersion();
     this.srs = map.getSrs();
+    this.imageType = map.getImageType();
+    this.urlParametersExpression = map.getUrlParametersExpression();
   }
 
   public void setBBoxExpression(JRExpression bboxExpression) {
@@ -114,6 +119,18 @@ public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
   @Override
   public JRExpression getStylesExpression() {
     return stylesExpression;
+  }
+
+  public void setUrlParametersExpression(JRExpression urlParametersExpression) {
+    Object old = this.urlParametersExpression;
+    this.urlParametersExpression = urlParametersExpression;
+    getEventSupport().firePropertyChange(PROPERTY_URL_PARAMETERS_EXPRESSION,
+        old, this.urlParametersExpression);
+  }
+
+  @Override
+  public JRExpression getUrlParametersExpression() {
+    return urlParametersExpression;
   }
 
   @Override

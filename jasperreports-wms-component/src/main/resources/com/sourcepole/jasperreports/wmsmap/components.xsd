@@ -20,6 +20,9 @@
             <element name="stylesExpression" minOccurs="0">
               <complexType mixed="true" />
             </element>
+            <element name="urlParametersExpression" minOccurs="0">
+              <complexType mixed="true" />
+            </element>
           </sequence>
           <attribute name="wmsServiceUrl" type="string" use="required" />
           <attribute name="wmsVersion" type="string" default="1.1.1"/>

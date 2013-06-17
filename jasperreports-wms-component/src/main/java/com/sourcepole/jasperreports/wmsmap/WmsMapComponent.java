@@ -13,6 +13,8 @@ public interface WmsMapComponent extends Component, JRCloneable {
 
   JRExpression getStylesExpression();
 
+  JRExpression getUrlParametersExpression();
+
   EvaluationTimeEnum getEvaluationTime();
 
   String getEvaluationGroup();
@@ -26,4 +28,5 @@ public interface WmsMapComponent extends Component, JRCloneable {
   String getImageType();
 
   Boolean getTransparent();
+
 }

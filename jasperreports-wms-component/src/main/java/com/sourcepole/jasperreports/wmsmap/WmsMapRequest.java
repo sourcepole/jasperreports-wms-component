@@ -88,7 +88,10 @@ public class WmsMapRequest {
     HEIGHT(true, null),
 
     /** Parameter {@code TRANSPARENT}. */
-    TRANSPARENT(false, Boolean.FALSE);
+    TRANSPARENT(false, Boolean.FALSE),
+
+    /** Extra URL parameters to append to a constructed URL. */
+    URL_PARAMETERS(false, null);
 
     private static final WmsVersion wmsVersion13 = new WmsVersion(1, 3, 0);
 

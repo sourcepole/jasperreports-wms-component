@@ -16,14 +16,17 @@ import com.sourcepole.jasperreports.wmsmap.WmsMapPrintElement;
 import com.sourcepole.jasperreports.wmsmap.WmsMapRequest;
 
 public class WmsMapFillComponent extends BaseFillComponent {
+
+  JRFillObjectFactory factory;
+
   private final WmsMapComponent mapComponent;
 
   private String bbox;
   private String layers;
   private String styles;
-  private String imageType;
+  private String urlParameters;
 
-  JRFillObjectFactory factory;
+  private String imageType;
 
   private String wmsServiceUrl;
 
@@ -65,6 +68,8 @@ public class WmsMapFillComponent extends BaseFillComponent {
         evaluation);
     styles = (String) fillContext.evaluate(mapComponent.getStylesExpression(),
         evaluation);
+    urlParameters = (String) fillContext.evaluate(
+        mapComponent.getUrlParametersExpression(), evaluation);
 
     if ("ERROR".equals(bbox)) {
       throw new JRException("Invalid bbox: " + bbox);
@@ -134,6 +139,10 @@ public class WmsMapFillComponent extends BaseFillComponent {
     if (imageType != null) {
       printElement.setParameterValue(WmsMapRequest.Parameter.FORMAT.name(),
           imageType);
+    }
+    if (urlParameters != null) {
+      printElement.setParameterValue(
+          WmsMapRequest.Parameter.URL_PARAMETERS.name(), urlParameters);
     }
   }
 }

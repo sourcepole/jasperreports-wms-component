@@ -12,6 +12,7 @@ import com.sourcepole.ireport.components.wmsmap.properties.WmsMapStylesProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsServiceUrlProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsSrsCrsProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsTransparentProperty;
+import com.sourcepole.ireport.components.wmsmap.properties.WmsUrlParametersProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsVersionListProperty;
 import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
 import net.sf.jasperreports.engine.design.JRDesignComponentElement;
@@ -56,6 +57,7 @@ public class WmsMapElementNode extends ElementNode {
     propertySet.put(new WmsMapStylesProperty(component, dataset));
     propertySet.put(new WmsMapImageTypeListProperty(component));
     propertySet.put(new WmsTransparentProperty(component));
+    propertySet.put(new WmsUrlParametersProperty(component, dataset));
 
     sheet.put(propertySet);
 
