@@ -214,6 +214,14 @@ public class WmsMapRequest {
         url.append("&");
       }
     }
+    Object urlParams = params.remove(Parameter.URL_PARAMETERS);
+    if (urlParams != null) {
+      String extraUrlParams = urlParams.toString();
+      if (!extraUrlParams.startsWith("&")) {
+        url.append("&");
+      }
+      url.append(extraUrlParams);
+    }
     return new URL(url.toString());
   }
 

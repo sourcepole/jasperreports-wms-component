@@ -1,12 +1,14 @@
 package com.sourcepole.jasperreports.wmsmap;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -70,7 +72,16 @@ public class WmsMapRequestTest {
     WmsMapRequest request = WmsMapRequest.mapRequest("elem", 100, 50,
         parameters);
     URL mapUrl = request.toMapUrl();
-    System.out.println(mapUrl);
+    assertNotNull(mapUrl);
+  }
+
+  @Test
+  public void testUrlParameters() throws MalformedURLException {
+    parameters.put(WmsMapRequest.Parameter.URL_PARAMETERS.name(), "param=test");
+    WmsMapRequest request = WmsMapRequest.mapRequest("elem", 100, 50,
+        parameters);
+    URL mapUrl = request.toMapUrl();
+    assertThat(mapUrl.toExternalForm(), Matchers.endsWith("&param=test"));
   }
 
 }
