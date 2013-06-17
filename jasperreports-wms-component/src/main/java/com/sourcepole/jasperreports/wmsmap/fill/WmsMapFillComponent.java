@@ -14,7 +14,6 @@ import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 import com.sourcepole.jasperreports.wmsmap.WmsMapComponent;
 import com.sourcepole.jasperreports.wmsmap.WmsMapPrintElement;
 import com.sourcepole.jasperreports.wmsmap.WmsMapRequest;
-import com.sourcepole.jasperreports.wmsmap.type.WmsMapImageTypeEnum;
 
 public class WmsMapFillComponent extends BaseFillComponent {
   private final WmsMapComponent mapComponent;
@@ -22,7 +21,7 @@ public class WmsMapFillComponent extends BaseFillComponent {
   private String bbox;
   private String layers;
   private String styles;
-  private WmsMapImageTypeEnum imageType;
+  private String imageType;
 
   JRFillObjectFactory factory;
 
@@ -66,6 +65,10 @@ public class WmsMapFillComponent extends BaseFillComponent {
         evaluation);
     styles = (String) fillContext.evaluate(mapComponent.getStylesExpression(),
         evaluation);
+
+    if ("ERROR".equals(bbox)) {
+      throw new JRException("Invalid bbox: " + bbox);
+    }
 
     imageType = mapComponent.getImageType();
   }
@@ -113,8 +116,7 @@ public class WmsMapFillComponent extends BaseFillComponent {
     copy((JRGenericPrintElement) element);
   }
 
-  protected void copy(JRGenericPrintElement printElement)
-  {
+  protected void copy(JRGenericPrintElement printElement) {
     printElement.setParameterValue(
         WmsMapRequest.Parameter.WMS_URL.name(), wmsServiceUrl);
     printElement.setParameterValue(WmsMapRequest.Parameter.VERSION.name(),
@@ -131,7 +133,7 @@ public class WmsMapFillComponent extends BaseFillComponent {
     }
     if (imageType != null) {
       printElement.setParameterValue(WmsMapRequest.Parameter.FORMAT.name(),
-          imageType.getName());
+          imageType);
     }
   }
 }

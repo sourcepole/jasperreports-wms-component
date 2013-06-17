@@ -79,7 +79,7 @@ public class WmsMapComponentsXmlWriter implements ComponentXmlWriter {
     writer.addAttribute(ATTRIBUTE_WMS_VERSION, map.getWmsVersion());
     writer.addAttribute(ATTRIBUTE_SRS, map.getSrs());
     writer.addAttribute(ATTRIBUTE_TRANSPARENT, map.getTransparent());
-    writer.addAttribute(ATTRIBUTE_IMAGE_TYPE, map.getImageType().getName());
+    writer.addAttribute(ATTRIBUTE_IMAGE_TYPE, map.getImageType());
 
     writer.writeExpression("bboxExpression",
         map.getBBoxExpression());

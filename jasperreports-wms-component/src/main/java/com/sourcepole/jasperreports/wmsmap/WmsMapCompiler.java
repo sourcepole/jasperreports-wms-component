@@ -1,5 +1,6 @@
 package com.sourcepole.jasperreports.wmsmap;
 
+import net.sf.jasperreports.engine.JRExpression;
 import net.sf.jasperreports.engine.JRExpressionCollector;
 import net.sf.jasperreports.engine.base.JRBaseObjectFactory;
 import net.sf.jasperreports.engine.component.Component;
@@ -49,6 +50,16 @@ public class WmsMapCompiler implements ComponentCompiler {
       verifier.addBrokenRule("WMS Service URL not set for map", map);
     }
 
+    verifyExpression(verifier, map, map.getBBoxExpression(), "BBox");
+    verifyExpression(verifier, map, map.getLayersExpression(), "Layers");
+  }
+
+  private void verifyExpression(JRVerifier verifier, WmsMapComponent map,
+      JRExpression jrExpression, String expressionName) {
+    if (jrExpression == null || jrExpression.getText() == null
+        || jrExpression.getText().trim().isEmpty()) {
+      verifier.addBrokenRule(expressionName + " expression is empty", map);
+    }
   }
 
 }

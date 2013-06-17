@@ -5,8 +5,6 @@ import net.sf.jasperreports.engine.JRExpression;
 import net.sf.jasperreports.engine.component.Component;
 import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 
-import com.sourcepole.jasperreports.wmsmap.type.WmsMapImageTypeEnum;
-
 public interface WmsMapComponent extends Component, JRCloneable {
 
   JRExpression getBBoxExpression();
@@ -25,7 +23,7 @@ public interface WmsMapComponent extends Component, JRCloneable {
 
   String getSrs();
 
-  WmsMapImageTypeEnum getImageType();
+  String getImageType();
 
   Boolean getTransparent();
 }

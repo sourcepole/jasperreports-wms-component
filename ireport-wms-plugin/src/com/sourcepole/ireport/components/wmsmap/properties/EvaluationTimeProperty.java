@@ -27,7 +27,11 @@ public class EvaluationTimeProperty extends PropertySupport {
 
     public EvaluationTimeProperty(StandardWmsMapComponent component, JRDesignDataset dataset)
     {
-        super( StandardMapComponent.PROPERTY_EVALUATION_TIME,EvaluationTimeEnum.class, I18n.getString("Global.Property.EvaluationTime"), I18n.getString("Global.Property.EvaluationTimedetail"), true, true);
+        super( StandardWmsMapComponent.PROPERTY_EVALUATION_TIME,
+                EvaluationTimeEnum.class, 
+                I18n.getString("Global.Property.EvaluationTime"), 
+                I18n.getString("Global.Property.EvaluationTimedetail"), 
+                true, true);
         this.component = component;
         this.dataset = dataset;
         setValue("suppressCustomEditor", Boolean.TRUE);

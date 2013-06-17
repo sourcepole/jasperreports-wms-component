@@ -34,8 +34,6 @@ import net.sf.jasperreports.engine.design.events.JRPropertyChangeSupport;
 import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 import net.sf.jasperreports.engine.util.JRCloneUtils;
 
-import com.sourcepole.jasperreports.wmsmap.type.WmsMapImageTypeEnum;
-
 public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
     JRChangeEventsSupport {
 
@@ -61,7 +59,7 @@ public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
   private String wmsVersion;
   private String srs;
   private Boolean transparent;
-  private WmsMapImageTypeEnum imageType;
+  private String imageType;
 
   private transient JRPropertyChangeSupport eventSupport;
 
@@ -143,11 +141,11 @@ public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
   }
 
   @Override
-  public WmsMapImageTypeEnum getImageType() {
+  public String getImageType() {
     return imageType;
   }
 
-  public void setImageType(WmsMapImageTypeEnum imageType) {
+  public void setImageType(String imageType) {
     Object old = this.imageType;
     this.imageType = imageType;
     getEventSupport().firePropertyChange(PROPERTY_IMAGE_TYPE, old,

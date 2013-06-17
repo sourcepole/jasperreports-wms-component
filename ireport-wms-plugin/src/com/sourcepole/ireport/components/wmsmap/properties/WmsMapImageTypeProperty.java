@@ -26,7 +26,6 @@ public class WmsMapImageTypeProperty extends EnumProperty {
     tags.add(new Tag(WmsMapImageTypeEnum.PNG, I18n.getString("WmsMapImageTypeProperty.enum.png")));
     tags.add(new Tag(WmsMapImageTypeEnum.PNG_8, I18n.getString("WmsMapImageTypeProperty.enum.png8")));
     tags.add(new Tag(WmsMapImageTypeEnum.PNG_32, I18n.getString("WmsMapImageTypeProperty.enum.png32")));
-    tags.add(new Tag(WmsMapImageTypeEnum.GIF, I18n.getString("WmsMapImageTypeProperty.enum.gif")));
     tags.add(new Tag(WmsMapImageTypeEnum.JPG, I18n.getString("WmsMapImageTypeProperty.enum.jpg")));
     return tags;
   }

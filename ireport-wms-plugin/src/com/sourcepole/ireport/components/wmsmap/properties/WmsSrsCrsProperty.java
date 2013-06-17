@@ -16,7 +16,7 @@ public class WmsSrsCrsProperty extends StringProperty {
   public WmsSrsCrsProperty(StandardWmsMapComponent component) {
     super(component);
     this.component = component;
-    setName(StandardWmsMapComponent.PROPERTY_WMS_VERSION);
+    setName(StandardWmsMapComponent.PROPERTY_SRS);
     setDisplayName(I18n.getString("Global.Property.WmsSrsCrs"));
     setShortDescription(I18n.getString("Global.Property.WmsSrsCrs.desc"));
   }

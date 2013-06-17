@@ -6,8 +6,6 @@ import net.sf.jasperreports.engine.xml.JRXmlConstants;
 
 import org.xml.sax.Attributes;
 
-import com.sourcepole.jasperreports.wmsmap.type.WmsMapImageTypeEnum;
-
 /**
  * 
  */
@@ -60,9 +58,8 @@ public class WmsMapXmlFactory extends JRBaseFactory {
     }
 
     // Image type
-    WmsMapImageTypeEnum imageType =
-        WmsMapImageTypeEnum.getByName(
-            atts.getValue(WmsMapComponentsXmlWriter.ATTRIBUTE_IMAGE_TYPE));
+    String imageType =
+        atts.getValue(WmsMapComponentsXmlWriter.ATTRIBUTE_IMAGE_TYPE);
     if (imageType != null) {
       map.setImageType(imageType);
     }

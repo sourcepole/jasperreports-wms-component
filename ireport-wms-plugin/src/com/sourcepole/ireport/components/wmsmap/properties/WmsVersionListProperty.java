@@ -1,24 +1,22 @@
 package com.sourcepole.ireport.components.wmsmap.properties;
 
-import com.jaspersoft.ireport.designer.sheet.properties.ExpressionProperty;
-import com.jaspersoft.ireport.designer.sheet.properties.StringProperty;
+import com.jaspersoft.ireport.designer.sheet.Tag;
+import com.jaspersoft.ireport.designer.sheet.properties.StringListProperty;
 import com.jaspersoft.ireport.locale.I18n;
 import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
-import java.net.MalformedURLException;
-import java.net.URL;
-import net.sf.jasperreports.engine.design.JRDesignDataset;
-import net.sf.jasperreports.engine.design.JRDesignExpression;
+import java.util.Arrays;
+import java.util.List;
 
-public class WmsVersionProperty extends StringProperty {
-  
+public class WmsVersionListProperty extends StringListProperty {
+
   private final StandardWmsMapComponent component;
 
-  public WmsVersionProperty(StandardWmsMapComponent component) {
+  public WmsVersionListProperty(StandardWmsMapComponent component) {
     super(component);
     this.component = component;
     setName(StandardWmsMapComponent.PROPERTY_WMS_VERSION);
-    setDisplayName(I18n.getString("Global.Property.WmsVersionExpression"));
-    setShortDescription(I18n.getString("Global.Property.WmsVersionExpression.desc"));
+    setDisplayName(I18n.getString("Global.Property.WmsVersion"));
+    setShortDescription(I18n.getString("Global.Property.WmsVersion.desc"));
   }
 
   @Override
@@ -48,8 +46,14 @@ public class WmsVersionProperty extends StringProperty {
   }
 
   @Override
-  public boolean supportsDefaultValue() {
-    return false;
+  public List getTagList() {
+    Tag version111 = new Tag("1.1.1");
+    Tag version13 = new Tag("1.3");
+    return Arrays.asList(version111, version13);
   }
 
+  @Override
+  public boolean supportsDefaultValue() {
+    return true;
+  }
 }

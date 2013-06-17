@@ -12,7 +12,7 @@ import com.sourcepole.ireport.components.wmsmap.properties.WmsMapStylesProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsServiceUrlProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsSrsCrsProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsTransparentProperty;
-import com.sourcepole.ireport.components.wmsmap.properties.WmsVersionProperty;
+import com.sourcepole.ireport.components.wmsmap.properties.WmsVersionListProperty;
 import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
 import net.sf.jasperreports.engine.design.JRDesignComponentElement;
 import net.sf.jasperreports.engine.design.JRDesignDataset;
@@ -49,7 +49,7 @@ public class WmsMapElementNode extends ElementNode {
     propertySet.put(new EvaluationTimeProperty(component, dataset));
     propertySet.put(new EvaluationGroupProperty(component, dataset));
     propertySet.put(new WmsServiceUrlProperty(component));
-    propertySet.put(new WmsVersionProperty(component));
+    propertySet.put(new WmsVersionListProperty(component));
     propertySet.put(new WmsSrsCrsProperty(component));
     propertySet.put(new WmsMapBBoxProperty(component, dataset));
     propertySet.put(new WmsMapLayersProperty(component, dataset));
