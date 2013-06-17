@@ -1,13 +1,8 @@
 package com.sourcepole.ireport.components.wmsmap.properties;
 
-import com.jaspersoft.ireport.designer.sheet.properties.ExpressionProperty;
 import com.jaspersoft.ireport.designer.sheet.properties.StringProperty;
 import com.jaspersoft.ireport.locale.I18n;
 import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
-import java.net.MalformedURLException;
-import java.net.URL;
-import net.sf.jasperreports.engine.design.JRDesignDataset;
-import net.sf.jasperreports.engine.design.JRDesignExpression;
 
 public class WmsSrsCrsProperty extends StringProperty {
   
