@@ -37,11 +37,11 @@ public class WmsUrlParametersProperty extends ExpressionProperty {
 
   @Override
   public JRDesignExpression getExpression() {
-    return (JRDesignExpression) component.getBBoxExpression();
+    return (JRDesignExpression) component.getUrlParametersExpression();
   }
 
   @Override
   public void setExpression(JRDesignExpression expression) {
-    component.setBBoxExpression(expression);
+    component.setUrlParametersExpression(expression);
   }
 }
