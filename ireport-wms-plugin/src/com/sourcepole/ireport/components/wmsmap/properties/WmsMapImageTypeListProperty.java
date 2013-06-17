@@ -1,11 +1,9 @@
 package com.sourcepole.ireport.components.wmsmap.properties;
 
 import com.jaspersoft.ireport.designer.sheet.Tag;
-import com.jaspersoft.ireport.designer.sheet.properties.EnumProperty;
 import com.jaspersoft.ireport.designer.sheet.properties.StringListProperty;
 import com.jaspersoft.ireport.locale.I18n;
 import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
-import com.sourcepole.jasperreports.wmsmap.type.WmsMapImageTypeEnum;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,22 +29,23 @@ public class WmsMapImageTypeListProperty extends StringListProperty {
 
   @Override
   public String getString() {
-    return 
+    return component.getImageType() == null ? 
+            getDefaultString() : component.getImageType();
   }
 
   @Override
   public String getOwnString() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return component.getImageType();
   }
 
   @Override
   public String getDefaultString() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return "image/png";
   }
 
   @Override
-  public void setString(String string) {
-    throw new UnsupportedOperationException("Not supported yet.");
+  public void setString(String imageType) {
+    this.component.setImageType(imageType);
   }
   
 }

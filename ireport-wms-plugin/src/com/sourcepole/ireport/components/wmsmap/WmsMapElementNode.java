@@ -6,7 +6,7 @@ import com.jaspersoft.ireport.locale.I18n;
 import com.sourcepole.ireport.components.wmsmap.properties.EvaluationGroupProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.EvaluationTimeProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsMapBBoxProperty;
-import com.sourcepole.ireport.components.wmsmap.properties.WmsMapImageTypeProperty;
+import com.sourcepole.ireport.components.wmsmap.properties.WmsMapImageTypeListProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsMapLayersProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsMapStylesProperty;
 import com.sourcepole.ireport.components.wmsmap.properties.WmsServiceUrlProperty;
@@ -54,7 +54,7 @@ public class WmsMapElementNode extends ElementNode {
     propertySet.put(new WmsMapBBoxProperty(component, dataset));
     propertySet.put(new WmsMapLayersProperty(component, dataset));
     propertySet.put(new WmsMapStylesProperty(component, dataset));
-    propertySet.put(new WmsMapImageTypeProperty(component));
+    propertySet.put(new WmsMapImageTypeListProperty(component));
     propertySet.put(new WmsTransparentProperty(component));
 
     sheet.put(propertySet);
