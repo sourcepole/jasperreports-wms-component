@@ -14,6 +14,7 @@ import net.sf.jasperreports.engine.JRGenericPrintElement;
 import net.sf.jasperreports.engine.export.JRHtmlExporterContext;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -41,6 +42,7 @@ public class WmsMapElementHtmlHandlerTest {
     assertTrue(handler.toExport(null));
   }
 
+  @Ignore("Moved test from generic element")
   @Test
   public void testGetHtmlFragment() {
     JRGenericPrintElement element = mock(JRGenericPrintElement.class);

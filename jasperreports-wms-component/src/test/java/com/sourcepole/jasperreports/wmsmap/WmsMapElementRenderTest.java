@@ -10,11 +10,13 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Tests rendering of generic WMS map elements.
  */
+@Ignore("Moved tests from generic element")
 public class WmsMapElementRenderTest {
 
   private static final String TEST_REPORT_SOURCE = "src/test/resources/test.jrxml";
