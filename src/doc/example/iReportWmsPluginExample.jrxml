@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="iReportWmsPluginExample" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c7eb8825-0911-408e-a88d-612c4b6c1a7a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="110"/>
+	<parameter name="MAP_BBOX" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="459" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="38965e52-53c9-42cf-b123-e28dbeca52ad" x="0" y="0" width="338" height="314"/>
+				<wmp:wmsmap xmlns:wmp="http://sourcepole.com/jasperreports/components" xsi:schemaLocation="http://sourcepole.com/jasperreports/components http://sourcepole.com/xsd/components.xsd" wmsServiceUrl="http://wms.qgiscloud.com/olten/Solarkataster" wmsVersion="1.1.1" srs="EPSG:21781" transparent="false">
+					<wmp:bboxExpression><![CDATA[$P{MAP_BBOX}]]></wmp:bboxExpression>
+					<wmp:layersExpression><![CDATA["Hintergrund,Kataster"]]></wmp:layersExpression>
+					<wmp:stylesExpression><![CDATA[]]></wmp:stylesExpression>
+				</wmp:wmsmap>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
