@@ -29,11 +29,11 @@ public class WmsMapElementHtmlHandlerTest {
   @Before
   public void setUp() {
     parameters = new LinkedHashMap<String, Object>();
-    parameters.put(WmsMapRequest.Parameter.WMS_URL.name(), BASE_URL);
-    parameters.put(WmsMapRequest.Parameter.LAYERS.name(), "Hintergrund");
-    parameters.put(WmsMapRequest.Parameter.BBOX.name(),
+    parameters.put(WmsRequestParameter.WMS_URL.name(), BASE_URL);
+    parameters.put(WmsRequestParameter.LAYERS.name(), "Hintergrund");
+    parameters.put(WmsRequestParameter.BBOX.name(),
         "634849.96085766,244281.95484911,635310.33560906,244655.89909163");
-    parameters.put(WmsMapRequest.Parameter.SRS.name(), "EPSG:21781");
+    parameters.put(WmsRequestParameter.SRS_CRS.name(), "EPSG:21781");
     handler = new WmsMapElementHtmlHandler();
   }
 
@@ -47,13 +47,13 @@ public class WmsMapElementHtmlHandlerTest {
   public void testGetHtmlFragment() {
     JRGenericPrintElement element = mock(JRGenericPrintElement.class);
     when(element.getParameterNames()).thenReturn(parameters.keySet());
-    when(element.getParameterValue(WmsMapRequest.Parameter.WMS_URL.name()))
+    when(element.getParameterValue(WmsRequestParameter.WMS_URL.name()))
         .thenReturn(BASE_URL);
-    when(element.getParameterValue(WmsMapRequest.Parameter.LAYERS.name()))
+    when(element.getParameterValue(WmsRequestParameter.LAYERS.name()))
         .thenReturn("Hintergrund");
-    when(element.getParameterValue(WmsMapRequest.Parameter.BBOX.name()))
+    when(element.getParameterValue(WmsRequestParameter.BBOX.name()))
         .thenReturn("1,1,1,1");
-    when(element.getParameterValue(WmsMapRequest.Parameter.SRS.name()))
+    when(element.getParameterValue(WmsRequestParameter.SRS_CRS.name()))
         .thenReturn("EPSG:21781");
     when(element.getWidth()).thenReturn(100);
     when(element.getHeight()).thenReturn(100);

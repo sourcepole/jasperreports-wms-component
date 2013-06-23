@@ -52,12 +52,10 @@ public class WmsMapElementHtmlHandler implements GenericElementHtmlHandler {
       contextMap.put("backgroundColor",
           JRColorUtil.getColorHexa(element.getBackcolor()));
     }
-    Map<String, Object> elementParameters = WmsMapElementImageProvider
-        .elementParameters(element);
-    WmsMapRequest mapRequest = WmsMapRequest.mapRequest(element.getKey(),
-        element.getWidth(), element.getHeight(), elementParameters);
+    WmsRequestBuilder requestBuilder =
+        WmsMapElementImageProvider.mapRequestBuilder(element);
     try {
-      contextMap.put("wmsMapUrl", mapRequest.toMapUrl());
+      contextMap.put("wmsMapUrl", requestBuilder.toMapUrl());
     } catch (MalformedURLException e) {
       throw new RuntimeException("Unable to build WMS map service url", e);
     }

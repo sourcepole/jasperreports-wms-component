@@ -1,9 +1,16 @@
 package com.sourcepole.jasperreports.wmsmap.fill;
 
+import static com.sourcepole.jasperreports.wmsmap.WmsMapElementImageProvider.getImageRenderable;
+import static com.sourcepole.jasperreports.wmsmap.WmsRequestBuilder.createGetMapRequest;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 import net.sf.jasperreports.engine.JRComponentElement;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRGenericPrintElement;
 import net.sf.jasperreports.engine.JRPrintElement;
+import net.sf.jasperreports.engine.Renderable;
 import net.sf.jasperreports.engine.component.BaseFillComponent;
 import net.sf.jasperreports.engine.component.FillPrepareResult;
 import net.sf.jasperreports.engine.fill.JRFillObjectFactory;
@@ -13,7 +20,8 @@ import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 
 import com.sourcepole.jasperreports.wmsmap.WmsMapComponent;
 import com.sourcepole.jasperreports.wmsmap.WmsMapPrintElement;
-import com.sourcepole.jasperreports.wmsmap.WmsMapRequest;
+import com.sourcepole.jasperreports.wmsmap.WmsRequestBuilder;
+import com.sourcepole.jasperreports.wmsmap.WmsRequestParameter;
 
 public class WmsMapFillComponent extends BaseFillComponent {
 
@@ -25,16 +33,13 @@ public class WmsMapFillComponent extends BaseFillComponent {
   private String layers;
   private String styles;
   private String urlParameters;
-
   private String imageType;
-
   private String wmsServiceUrl;
-
   private Boolean transparent;
-
   private String wmsVersion;
+  private String srsCrs;
 
-  private String srs;
+  private Renderable imageRenderable;
 
   public WmsMapFillComponent(WmsMapComponent map) {
     this.mapComponent = map;
@@ -56,12 +61,15 @@ public class WmsMapFillComponent extends BaseFillComponent {
     }
   }
 
-  protected void evaluateMap(byte evaluation) throws JRException {
+  void evaluateMap(byte evaluation)
+      throws JRException {
+    String elementName = fillContext.getComponentElement().getKey();
+    int width = fillContext.getComponentElement().getWidth();
+    int height = fillContext.getComponentElement().getHeight();
     wmsServiceUrl = mapComponent.getWmsServiceUrl();
     wmsVersion = mapComponent.getWmsVersion();
-    srs = mapComponent.getSrs();
+    srsCrs = mapComponent.getSrs();
     transparent = mapComponent.getTransparent();
-
     bbox = (String) fillContext.evaluate(mapComponent.getBBoxExpression(),
         evaluation);
     layers = (String) fillContext.evaluate(mapComponent.getLayersExpression(),
@@ -70,12 +78,31 @@ public class WmsMapFillComponent extends BaseFillComponent {
         evaluation);
     urlParameters = (String) fillContext.evaluate(
         mapComponent.getUrlParametersExpression(), evaluation);
-
-    if ("ERROR".equals(bbox)) {
-      throw new JRException("Invalid bbox: " + bbox);
-    }
-
     imageType = mapComponent.getImageType();
+
+    WmsRequestBuilder requestBuilder = createGetMapRequest(wmsServiceUrl)
+        .version(wmsVersion)
+        .srsCrs(srsCrs)
+        .transparent(transparent)
+        .boundingBox(bbox)
+        .layers(layers)
+        .styles(styles)
+        .format(imageType)
+        .urlParameters(urlParameters)
+        .width(width)
+        .height(height);
+
+    // load map image
+    try {
+      this.imageRenderable = getImageRenderable(null, elementName,
+          requestBuilder);
+    } catch (MalformedURLException e) {
+      throw new JRException(e.getMessage(), e);
+    } catch (IOException e) {
+      throw new JRException(e.getMessage(), e);
+    } catch (IllegalStateException e) {
+      throw new JRException(e.getMessage(), e);
+    }
   }
 
   protected boolean isEvaluateNow() {
@@ -123,26 +150,31 @@ public class WmsMapFillComponent extends BaseFillComponent {
 
   protected void copy(JRGenericPrintElement printElement) {
     printElement.setParameterValue(
-        WmsMapRequest.Parameter.WMS_URL.name(), wmsServiceUrl);
-    printElement.setParameterValue(WmsMapRequest.Parameter.VERSION.name(),
+        WmsRequestParameter.WMS_URL.name(), wmsServiceUrl);
+    printElement.setParameterValue(WmsRequestParameter.VERSION.name(),
         wmsVersion);
-    printElement.setParameterValue(WmsMapRequest.Parameter.SRS.name(), srs);
-    printElement.setParameterValue(WmsMapRequest.Parameter.TRANSPARENT.name(),
+    printElement.setParameterValue(WmsRequestParameter.SRS_CRS.name(),
+        srsCrs);
+    printElement.setParameterValue(WmsRequestParameter.TRANSPARENT.name(),
         transparent);
-    printElement.setParameterValue(WmsMapRequest.Parameter.BBOX.name(), bbox);
-    printElement.setParameterValue(WmsMapRequest.Parameter.LAYERS.name(),
+    printElement.setParameterValue(WmsRequestParameter.BBOX.name(), bbox);
+    printElement.setParameterValue(WmsRequestParameter.LAYERS.name(),
         layers);
     if (styles != null) {
-      printElement.setParameterValue(WmsMapRequest.Parameter.STYLE.name(),
+      printElement.setParameterValue(WmsRequestParameter.STYLE.name(),
           styles);
     }
     if (imageType != null) {
-      printElement.setParameterValue(WmsMapRequest.Parameter.FORMAT.name(),
+      printElement.setParameterValue(WmsRequestParameter.FORMAT.name(),
           imageType);
     }
     if (urlParameters != null) {
       printElement.setParameterValue(
-          WmsMapRequest.Parameter.URL_PARAMETERS.name(), urlParameters);
+          WmsRequestParameter.URL_PARAMETERS.name(), urlParameters);
+    }
+    if (this.imageRenderable != null) {
+      printElement.setParameterValue(
+          WmsMapPrintElement.PARAMETER_CACHE_RENDERER, this.imageRenderable);
     }
   }
 }
