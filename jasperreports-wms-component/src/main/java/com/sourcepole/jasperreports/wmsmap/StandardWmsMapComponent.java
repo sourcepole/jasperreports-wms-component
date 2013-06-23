@@ -61,7 +61,7 @@ public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
   private String wmsServiceUrl;
   private String wmsVersion;
   private String srs;
-  private Boolean transparent;
+  private Boolean transparent = Boolean.FALSE;
   private String imageType;
 
   private transient JRPropertyChangeSupport eventSupport;
