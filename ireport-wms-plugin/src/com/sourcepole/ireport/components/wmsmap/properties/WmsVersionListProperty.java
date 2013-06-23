@@ -4,6 +4,7 @@ import com.jaspersoft.ireport.designer.sheet.Tag;
 import com.jaspersoft.ireport.designer.sheet.properties.StringListProperty;
 import com.jaspersoft.ireport.locale.I18n;
 import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
+import com.sourcepole.jasperreports.wmsmap.WmsVersion;
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,7 +43,10 @@ public class WmsVersionListProperty extends StringListProperty {
 
   @Override
   public void validate(Object value) {
-    
+    if(value == null) {
+      throw new IllegalArgumentException("Version must not be empty");
+    }
+    WmsVersion.validateVersion(value.toString());
   }
 
   @Override
