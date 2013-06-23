@@ -3,5 +3,5 @@ OpenIDE-Module: com.sourcepole.ireport.wms
 OpenIDE-Module-Install: com/sourcepole/ireport/components/wmsmap/Installer.class
 OpenIDE-Module-Layer: com/sourcepole/ireport/components/wmsmap/layer.xml
 OpenIDE-Module-Localizing-Bundle: com/sourcepole/ireport/components/wmsmap/Bundle.properties
-OpenIDE-Module-Specification-Version: 1.0
+OpenIDE-Module-Specification-Version: 1.0.0
 

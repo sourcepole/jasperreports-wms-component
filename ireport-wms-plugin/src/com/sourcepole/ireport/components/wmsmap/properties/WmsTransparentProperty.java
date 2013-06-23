@@ -34,6 +34,7 @@ public class WmsTransparentProperty extends BooleanProperty {
 
   @Override
   public void setBoolean(Boolean bln) {
+    Boolean transparent = bln == null ? Boolean.FALSE : bln;
     this.component.setTransparent(bln);
   }
 

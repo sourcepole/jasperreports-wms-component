@@ -50,8 +50,8 @@
             </module-dependencies>
             <public-packages/>
             <class-path-extension>
-                <runtime-relative-path>ext/jasperreports-wms-component-0.0.1-SNAPSHOT.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jasperreports-wms-component-0.0.1-SNAPSHOT.jar</binary-origin>
+                <runtime-relative-path>ext/jasperreports-wms-component-1.0.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jasperreports-wms-component-1.0.0.jar</binary-origin>
             </class-path-extension>
         </data>
     </configuration>
