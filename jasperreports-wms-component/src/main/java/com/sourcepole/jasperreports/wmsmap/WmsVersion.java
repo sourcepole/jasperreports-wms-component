@@ -70,6 +70,15 @@ public class WmsVersion implements Comparable<WmsVersion> {
     return version.toString();
   }
 
+  /**
+   * Validates the argument {@code version}.
+   * 
+   * @param version Version string to validate
+   */
+  public static void validateVersion(String version) {
+    new WmsVersion(version);
+  }
+
   private static int versionElement(String[] versionParts, int i) {
     if (versionParts.length < i + 1) {
       return 0;
