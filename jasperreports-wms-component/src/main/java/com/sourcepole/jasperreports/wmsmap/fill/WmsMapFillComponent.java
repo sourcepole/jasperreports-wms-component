@@ -80,7 +80,8 @@ public class WmsMapFillComponent extends BaseFillComponent {
         mapComponent.getUrlParametersExpression(), evaluation);
     imageType = mapComponent.getImageType();
 
-    WmsRequestBuilder requestBuilder = createGetMapRequest(wmsServiceUrl)
+    WmsRequestBuilder requestBuilder = createGetMapRequest(wmsServiceUrl);
+    requestBuilder
         .version(wmsVersion)
         .srsCrs(srsCrs)
         .transparent(transparent)
