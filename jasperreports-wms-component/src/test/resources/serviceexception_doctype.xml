@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding="ISO-8859-1" standalone="no" ?>
+<!DOCTYPE ServiceExceptionReport SYSTEM "http://schemas.opengis.net/wms/1.1.1/exception_1_1_1.dtd">
+<ServiceExceptionReport version="1.1.1">
+<ServiceException code="InvalidSRS">
+msWMSLoadGetMapParams(): WMS server error. Unsupported SRS namespace (only EPSG and AUTO currently supported).
+</ServiceException>
+</ServiceExceptionReport>

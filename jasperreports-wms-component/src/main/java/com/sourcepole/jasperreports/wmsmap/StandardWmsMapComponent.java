@@ -238,6 +238,8 @@ public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
     clone.bboxExpression = JRCloneUtils.nullSafeClone(bboxExpression);
     clone.layersExpression = JRCloneUtils.nullSafeClone(layersExpression);
     clone.stylesExpression = JRCloneUtils.nullSafeClone(stylesExpression);
+    clone.urlParametersExpression = JRCloneUtils
+            .nullSafeClone(urlParametersExpression);
     clone.eventSupport = null;
     return clone;
   }

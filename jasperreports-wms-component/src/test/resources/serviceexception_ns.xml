@@ -1,0 +1,4 @@
+<ServiceExceptionReport version="1.3.0"
+  xmlns="http://www.opengis.net/ogc">
+  <ServiceException code="OperationNotSupported">Operation GetMapXXX not supported</ServiceException>
+</ServiceExceptionReport>
