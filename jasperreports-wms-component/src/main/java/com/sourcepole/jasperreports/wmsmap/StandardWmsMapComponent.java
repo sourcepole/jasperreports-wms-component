@@ -50,7 +50,7 @@ public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
   public static final String PROPERTY_TRANSPARENT = "transparent";
   public static final String PROPERTY_IMAGE_TYPE = "imageType";
   public static final String PROPERTY_URL_PARAMETERS_EXPRESSION =
-      "urlParamatersExpression";
+      "urlParametersExpression";
 
   private JRExpression bboxExpression;
   private JRExpression layersExpression;
