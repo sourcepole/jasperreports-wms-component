@@ -6,9 +6,6 @@ import net.sf.jasperreports.engine.xml.JRXmlConstants;
 
 import org.xml.sax.Attributes;
 
-/**
- * 
- */
 public class WmsMapXmlFactory extends JRBaseFactory {
 
   public static final String ATTRIBUTE_imageType = "imageType";
