@@ -1,16 +1,15 @@
 package com.sourcepole.jasperreports.wmsmap;
 
+import static com.sourcepole.jasperreports.wmsmap.error.ServiceExceptionReport.parseExceptionReportFromStream;
 import static java.lang.String.format;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.xml.bind.JAXB;
 
 import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 import net.sf.jasperreports.engine.JRException;
@@ -33,6 +32,8 @@ import com.sourcepole.jasperreports.wmsmap.error.ServiceExceptionReport;
  */
 public class WmsMapElementImageProvider {
 
+  private static final Charset UTF_8 = Charset.forName("UTF-8");
+
   public static JRPrintImage getImage(
       JasperReportsContext jasperReportsContext, JRGenericPrintElement element)
       throws JRException, IOException {
@@ -50,9 +51,6 @@ public class WmsMapElementImageProvider {
     printImage.setBackcolor(element.getBackcolor());
     printImage.setForecolor(element.getForecolor());
     printImage.setLazy(false);
-
-    // FIXMEMAP there are no scale image, alignment and onError attributes
-    // defined for the map element
     printImage.setScaleImage(ScaleImageEnum.CLIP);
     printImage.setHorizontalAlignment(HorizontalAlignEnum.LEFT);
     printImage.setVerticalAlignment(VerticalAlignEnum.TOP);
@@ -129,26 +127,19 @@ public class WmsMapElementImageProvider {
   static void evaluateServiceExceptionReport(String elementName, URL mapUrl,
       HttpURLConnection httpConnection)
       throws IOException, JRException {
-    InputStream inputStream = httpConnection.getInputStream();
-    ServiceExceptionReport exceptionReport = JAXB.unmarshal(inputStream,
-        ServiceExceptionReport.class);
-    if (exceptionReport == null
-        || exceptionReport.getServiceException() == null) {
-      completeServiceExceptionReport(elementName, mapUrl, httpConnection);
+    String encodingName = httpConnection.getContentEncoding();
+    Charset encoding;
+    try {
+      encoding = Charset.forName(encodingName);
+    } catch (IllegalArgumentException e) {
+      encoding = UTF_8;
     }
-    ServiceException ex = exceptionReport.getServiceException();
+    ServiceExceptionReport report = parseExceptionReportFromStream(
+        httpConnection.getInputStream(), encoding);
+    ServiceException ex = report.getServiceException();
     throw new JRException(format("The server reported an exception for "
         + "WMS map element '%s', code: %s, message: %s, URL: %s",
         elementName, ex.getCode(), ex.getBody(), mapUrl));
-  }
-
-  private static void completeServiceExceptionReport(String elementName,
-      URL mapUrl, HttpURLConnection httpConnection) throws JRException,
-      IOException {
-    throw new JRException(format("The server reported an exception for "
-        + "WMS map element '%s' that could not be decoded; "
-        + "URL: %s, response message: %s", elementName, mapUrl,
-        httpConnection.getResponseMessage()));
   }
 
   static WmsRequestBuilder mapRequestBuilder(JRGenericPrintElement element) {
