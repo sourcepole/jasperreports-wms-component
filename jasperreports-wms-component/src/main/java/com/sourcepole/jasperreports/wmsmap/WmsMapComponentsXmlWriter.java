@@ -87,6 +87,8 @@ public class WmsMapComponentsXmlWriter implements ComponentXmlWriter {
         map.getLayersExpression());
     writer.writeExpression("stylesExpression",
         map.getStylesExpression());
+    writer.writeExpression("urlParametersExpression",
+        map.getUrlParametersExpression());
 
     writer.closeElement();
   }

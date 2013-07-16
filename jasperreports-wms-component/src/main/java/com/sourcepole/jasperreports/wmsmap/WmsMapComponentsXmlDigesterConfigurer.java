@@ -39,6 +39,14 @@ public class WmsMapComponentsXmlDigesterConfigurer implements
     digester.addSetNext(stylesExpressionPattern, "setStylesExpression",
         JRExpression.class.getName());
 
+    String urlParametersExpressionPattern = mapPattern
+        + "/urlParametersExpression";
+    digester.addFactoryCreate(urlParametersExpressionPattern,
+        JRExpressionFactory.class.getName());
+    digester.addCallMethod(urlParametersExpressionPattern, "setText", 0);
+    digester.addSetNext(urlParametersExpressionPattern,
+        "setUrlParametersExpression", JRExpression.class.getName());
+
     String componentNamespace = digester.getRuleNamespaceURI();
 
     // leave the digester namespace in the same state
