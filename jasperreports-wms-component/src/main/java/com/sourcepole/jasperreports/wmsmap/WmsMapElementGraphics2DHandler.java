@@ -3,8 +3,6 @@ package com.sourcepole.jasperreports.wmsmap;
 import static com.sourcepole.jasperreports.wmsmap.WmsMapElementImageProvider.getImage;
 
 import java.awt.Graphics2D;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import net.sf.jasperreports.engine.JRGenericPrintElement;
 import net.sf.jasperreports.engine.JRPrintImage;
@@ -14,17 +12,8 @@ import net.sf.jasperreports.engine.export.JRGraphics2DExporterContext;
 import net.sf.jasperreports.engine.export.draw.ImageDrawer;
 import net.sf.jasperreports.engine.export.draw.Offset;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 public class WmsMapElementGraphics2DHandler implements
     GenericElementGraphics2DHandler {
-
-  // XXX: Remove these loggers
-  private static Log log = LogFactory
-      .getLog(WmsMapElementGraphics2DHandler.class);
-  private static Logger logger = Logger
-      .getLogger(WmsMapElementGraphics2DHandler.class.getName());
 
   private static final WmsMapElementGraphics2DHandler INSTANCE =
       new WmsMapElementGraphics2DHandler();
@@ -44,15 +33,6 @@ public class WmsMapElementGraphics2DHandler implements
       JRPrintImage image = getImage(context.getJasperReportsContext(), element);
       imageDrawer.draw(grx, image, offset.getX(), offset.getY());
     } catch (Exception e) {
-      // Server log
-      if (log.isErrorEnabled()) {
-        log.error(e.getMessage(), e);
-      }
-      // XXX: Hack to make error messages accessible to the user in iReport
-      // IDE log
-      if (logger.isLoggable(Level.SEVERE)) {
-        logger.log(Level.SEVERE, e.getMessage(), e);
-      }
       throw new RuntimeException(e);
     }
   }
