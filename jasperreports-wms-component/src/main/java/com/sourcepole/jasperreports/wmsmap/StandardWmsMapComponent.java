@@ -53,13 +53,14 @@ public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
         .getLayersExpression());
     this.stylesExpression = objectFactory.getExpression(map
         .getStylesExpression());
+    this.urlParametersExpression =
+        objectFactory.getExpression(map.getUrlParametersExpression());
     this.evaluationTime = map.getEvaluationTime();
     this.evaluationGroup = map.getEvaluationGroup();
     this.wmsServiceUrl = map.getWmsServiceUrl();
     this.wmsVersion = map.getWmsVersion();
     this.srs = map.getSrs();
     this.imageType = map.getImageType();
-    this.urlParametersExpression = map.getUrlParametersExpression();
   }
 
   public void setBBoxExpression(JRExpression bboxExpression) {
