@@ -7,4 +7,4 @@ build/
 *.jar
 *.jasper
 .DS_Store
-
+*.swp
