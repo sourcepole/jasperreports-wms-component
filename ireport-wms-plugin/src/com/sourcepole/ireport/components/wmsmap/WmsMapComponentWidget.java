@@ -35,7 +35,8 @@ public class WmsMapComponentWidget extends JRDesignElementWidget {
 
         if (evt.getPropertyName().equals(StandardWmsMapComponent.PROPERTY_BBOX_EXPRESSION)
                 || evt.getPropertyName().equals(StandardWmsMapComponent.PROPERTY_LAYERS_EXPRESSION)
-                || evt.getPropertyName().equals(StandardWmsMapComponent.PROPERTY_STYLES_EXPRESSION)) {
+                || evt.getPropertyName().equals(StandardWmsMapComponent.PROPERTY_STYLES_EXPRESSION)
+                || evt.getPropertyName().equals(StandardWmsMapComponent.PROPERTY_URL_PARAMETERS_EXPRESSION)) {
             updateBounds();
             this.repaint();
             this.revalidate(true);
