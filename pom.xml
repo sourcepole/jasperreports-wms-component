@@ -164,14 +164,6 @@
             <target>${project.build.jdk}</target>
           </configuration>
         </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>license-maven-plugin</artifactId>
-          <version>1.5</version>
-          <configuration>
-            <licenseName>lgpl_v3</licenseName>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
   </build>
