@@ -5,7 +5,7 @@
 
   <groupId>com.sourcepole.jasperreports</groupId>
   <artifactId>jasperreports-wms</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <inceptionYear>2013</inceptionYear>
@@ -32,7 +32,6 @@
     <!-- Dependency versions -->
     <itext.version>2.1.7</itext.version>
     <jasperreports.version>5.0.1</jasperreports.version>
-    <springframework.version>2.5</springframework.version>
     <velocity.version>1.7</velocity.version>
 
     <!-- Test dependency versions -->
@@ -67,20 +66,6 @@
         <version>${velocity.version}</version>
         <scope>provided</scope>
         <optional>true</optional>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-core</artifactId>
-        <version>${springframework.version}</version>
-        <scope>provided</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-beans</artifactId>
-        <version>${springframework.version}</version>
-        <scope>provided</scope>
       </dependency>
 
       <dependency>

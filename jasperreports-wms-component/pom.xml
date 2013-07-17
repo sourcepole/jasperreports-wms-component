@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.sourcepole.jasperreports</groupId>
     <artifactId>jasperreports-wms</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
   </parent>
 
   <artifactId>jasperreports-wms-component</artifactId>
@@ -24,14 +24,6 @@
     <dependency>
       <groupId>org.apache.velocity</groupId>
       <artifactId>velocity</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
     </dependency>
     
     <!-- Test dependencies -->
