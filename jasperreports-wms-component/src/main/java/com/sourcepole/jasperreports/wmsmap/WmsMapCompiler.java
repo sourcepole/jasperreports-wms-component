@@ -17,6 +17,7 @@ public class WmsMapCompiler implements ComponentCompiler {
     collector.addExpression(map.getBBoxExpression());
     collector.addExpression(map.getLayersExpression());
     collector.addExpression(map.getStylesExpression());
+    collector.addExpression(map.getUrlParametersExpression());
   }
 
   @Override
