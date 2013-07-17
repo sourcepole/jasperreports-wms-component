@@ -78,10 +78,13 @@ In iReport Designer:
 
 - choose 'Tools' -> 'Plugins' from the menu
 - to uninstall a previous version of the plugin:
+
   - select tab 'Installed'
   - select the Entry in the list
   - click 'Uninstall' (requires restart of iReport)
+  
 - to install a new version of the plugin:
+
   - select tab 'Downloaded'
   - click 'Add Plugins...'
   - choose the plugin package (``com-sourcepole-ireport-wms.nbm``) from the file system
