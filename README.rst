@@ -61,6 +61,7 @@ To build the JasperReports extension:
 - the extension artifact JAR file may be found in the ``target`` directory: ``jasperreports-wms-component-x.y.z.jar``.
 
 To build the iReport Plugin
+
 - add iReport Platform to NetBeans (see: http://community.jaspersoft.com/wiki/introduction-custom-components-ireport-designer#Creation_of_the_plugin_in_NetBeans) 
 - open the iReport Plugin project (located in subdirectory ``ireport-wms-plugin``) in NetBeans
 - right-click the Project and select 'Properties'
@@ -74,6 +75,7 @@ Install the iReport Plugin
 --------------------------
 
 In iReport Designer:
+
 - choose 'Tools' -> 'Plugins' from the menu
 - to uninstall a previous version of the plugin:
   - select tab 'Installed'
