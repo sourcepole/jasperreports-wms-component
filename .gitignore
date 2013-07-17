@@ -5,3 +5,6 @@ build/
 .settings/
 *.tmp
 *.jar
+*.jasper
+.DS_Store
+

@@ -20,10 +20,11 @@
 		<band height="459" splitType="Stretch">
 			<componentElement>
 				<reportElement uuid="38965e52-53c9-42cf-b123-e28dbeca52ad" x="0" y="0" width="338" height="314"/>
-				<wmp:wmsmap xmlns:wmp="http://sourcepole.com/jasperreports/components" xsi:schemaLocation="http://sourcepole.com/jasperreports/components http://sourcepole.com/xsd/components.xsd" wmsServiceUrl="http://wms.qgiscloud.com/olten/Solarkataster" wmsVersion="1.1.1" srs="EPSG:21781" transparent="false">
+				<wmp:wmsmap xmlns:wmp="http://sourcepole.com/jasperreports/components" xsi:schemaLocation="http://sourcepole.com/jasperreports/components http://sourcepole.com/xsd/components.xsd" wmsServiceUrl="http://wms.qgiscloud.com/olten/Solarkataster" wmsVersion="1.1.1" srs="XXX" transparent="false" imageType="image/png">
 					<wmp:bboxExpression><![CDATA[$P{MAP_BBOX}]]></wmp:bboxExpression>
 					<wmp:layersExpression><![CDATA["Hintergrund,Kataster"]]></wmp:layersExpression>
 					<wmp:stylesExpression><![CDATA[]]></wmp:stylesExpression>
+					<wmp:urlParametersExpression><![CDATA["DPI=7"]]></wmp:urlParametersExpression>
 				</wmp:wmsmap>
 			</componentElement>
 		</band>
