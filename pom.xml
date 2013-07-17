@@ -41,19 +41,6 @@
     <mockito.version>1.9.5</mockito.version>
   </properties>
 
-  <distributionManagement>
-    <repository>
-      <id>panter-oss-releases</id>
-      <name>Panter OSS Releases Repository</name>
-      <url>https://java.panter.ch/nexus/content/repositories/oss-releases/</url>
-    </repository>
-    <snapshotRepository>
-      <id>panter-oss-snapshots</id>
-      <name>Pantor OSS Panter Snapshots Repository</name>
-      <url>https://java.panter.ch/nexus/content/repositories/oss-snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
-
   <modules>
     <module>jasperreports-wms-component</module>
   </modules>
