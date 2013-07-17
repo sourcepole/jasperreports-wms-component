@@ -132,9 +132,21 @@ When previewing the report in iReport, a prompt is shown to enter the MAP_BBOX p
 Copyright and License
 =====================
 
-Copyright (c) 2013 ....
+Copyright (c) 2013 Sourcepole AG
 
-...
+JasperReports/iReport WMS Component is free software: you can redistribute 
+it and/or modify it under the terms of the GNU Lesser General Public License 
+as published by the Free Software Foundation, either version 3 of the 
+License, or (at your option) any later version.
+
+JasperReports/iReport WMS Component is distributed in the hope that it will
+be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with JasperReports/iReport WMS Component. 
+If not, see <http://www.gnu.org/licenses/>.
 
 
 .. _JasperReports: http://community.jaspersoft.com/
