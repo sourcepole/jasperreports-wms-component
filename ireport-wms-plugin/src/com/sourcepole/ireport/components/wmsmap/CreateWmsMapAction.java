@@ -24,6 +24,7 @@ public class CreateWmsMapAction extends CreateReportElementAction {
     mapComponent.setBBoxExpression(Misc.createExpression(null, "\"0.0,0.0,0.0,0.0\""));
     mapComponent.setLayersExpression(Misc.createExpression(null, "\"layer1,layer2\""));
     mapComponent.setStylesExpression(Misc.createExpression(null, "\"style1,style2\""));
+    mapComponent.setUrlParametersExpression(Misc.createExpression(null, "\"\""));
 
     component.setComponent(mapComponent);
     ComponentKey key = new ComponentKey("http://sourcepole.com/jasperreports/components", "wmp", "wmsmap");
