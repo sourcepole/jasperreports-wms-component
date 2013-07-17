@@ -43,6 +43,8 @@ public final class WmsMapPrintElement
   /** Parameter {@code styles}. */
   public static final String PARAMETER_STYLES = "styles";
 
+  public static final String PARAMETER_URL_PARAMETERS = "urlParameters";
+
   /** Parameter {@code imageType}. */
   public static final String PARAMETER_IMAGE_TYPE = "imageType";
 
