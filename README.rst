@@ -50,13 +50,15 @@ Building from source
 --------------------
 
 Prerequisites to build the extension from source:
+
 - JDK 6 or higher
 - NetBeans Platform (to build the iReport Plugin) and iReport installation
 - Apache Maven 3.0.x (http://maven.apache.org, to build the JasperReports extension)
 
 To build the JasperReports extension:
+
 - run ``mvn clean install`` in the project directory
-- the extension artifact JAR file may be found in the ``target`` directory: ``jasperreports-wms-compoennt-x.y.z.jar``.
+- the extension artifact JAR file may be found in the ``target`` directory: ``jasperreports-wms-component-x.y.z.jar``.
 
 To build the iReport Plugin
 - add iReport Platform to NetBeans (see: http://community.jaspersoft.com/wiki/introduction-custom-components-ireport-designer#Creation_of_the_plugin_in_NetBeans) 
