@@ -9,6 +9,9 @@ import java.net.URL;
 import net.sf.jasperreports.engine.design.JRDesignDataset;
 import net.sf.jasperreports.engine.design.JRDesignExpression;
 
+/**
+ * Property for WMS map service URL.
+ */
 public class WmsServiceUrlProperty extends StringProperty {
   
   private final StandardWmsMapComponent component;

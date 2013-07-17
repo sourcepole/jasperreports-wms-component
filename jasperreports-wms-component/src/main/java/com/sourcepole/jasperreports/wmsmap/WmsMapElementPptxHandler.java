@@ -9,6 +9,9 @@ import net.sf.jasperreports.engine.export.ooxml.GenericElementPptxHandler;
 import net.sf.jasperreports.engine.export.ooxml.JRPptxExporter;
 import net.sf.jasperreports.engine.export.ooxml.JRPptxExporterContext;
 
+/**
+ * WMS map element handler to produce PPTX report output.
+ */
 public class WmsMapElementPptxHandler implements GenericElementPptxHandler {
 
   private static final WmsMapElementPptxHandler INSTANCE = new WmsMapElementPptxHandler();

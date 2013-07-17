@@ -10,6 +10,9 @@ import net.sf.jasperreports.engine.export.oasis.GenericElementOdtHandler;
 import net.sf.jasperreports.engine.export.oasis.JROdtExporter;
 import net.sf.jasperreports.engine.export.oasis.JROdtExporterContext;
 
+/**
+ * WMS map element handler to produce ODT report output.
+ */
 public class WmsMapElementOdtHandler implements GenericElementOdtHandler {
 
   private static final WmsMapElementOdtHandler INSTANCE = new WmsMapElementOdtHandler();

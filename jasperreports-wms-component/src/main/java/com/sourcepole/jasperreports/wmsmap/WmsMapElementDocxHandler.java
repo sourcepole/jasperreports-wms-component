@@ -10,6 +10,9 @@ import net.sf.jasperreports.engine.export.ooxml.GenericElementDocxHandler;
 import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.engine.export.ooxml.JRDocxExporterContext;
 
+/**
+ * WMS map element handler to produce DOCX report output.
+ */
 public class WmsMapElementDocxHandler implements GenericElementDocxHandler {
 
   private static final WmsMapElementDocxHandler INSTANCE = new WmsMapElementDocxHandler();

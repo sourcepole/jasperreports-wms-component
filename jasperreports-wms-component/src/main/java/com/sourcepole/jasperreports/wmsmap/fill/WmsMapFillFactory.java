@@ -8,6 +8,9 @@ import net.sf.jasperreports.engine.fill.JRFillObjectFactory;
 
 import com.sourcepole.jasperreports.wmsmap.WmsMapComponent;
 
+/**
+ * Factory for {@link WmsMapFillComponent}s.
+ */
 public class WmsMapFillFactory implements ComponentFillFactory {
 
   @Override

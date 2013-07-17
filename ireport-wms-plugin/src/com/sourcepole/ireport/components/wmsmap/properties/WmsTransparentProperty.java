@@ -4,6 +4,9 @@ import com.jaspersoft.ireport.designer.sheet.properties.BooleanProperty;
 import com.jaspersoft.ireport.locale.I18n;
 import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
 
+/**
+ * Boolean property for WMS map transparent parameter.
+ */
 public class WmsTransparentProperty extends BooleanProperty {
   
   private final StandardWmsMapComponent component;

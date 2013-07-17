@@ -3,6 +3,9 @@ package com.sourcepole.jasperreports.wmsmap;
 import java.util.Locale;
 import java.util.Map;
 
+/**
+ * Enumeration of standard WMS request URL parts and parameters.
+ */
 public enum WmsRequestParameter {
 
   /** Parameter for the WMS service base URL. */
@@ -11,7 +14,7 @@ public enum WmsRequestParameter {
   /** Parameter {@code SERVICE}. */
   SERVICE(false, "WMS"),
 
-  /** Parameter {@code SERVICE} type. */
+  /** Parameter {@code REQUEST} type. */
   REQUEST(false, WmsRequestType.GET_MAP),
 
   /** Parameter {@code LAYERS}. */

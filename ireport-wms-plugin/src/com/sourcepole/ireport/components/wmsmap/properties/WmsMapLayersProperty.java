@@ -6,6 +6,9 @@ import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
 import net.sf.jasperreports.engine.design.JRDesignDataset;
 import net.sf.jasperreports.engine.design.JRDesignExpression;
 
+/**
+ * Expression property for WMS map layers.
+ */
 public class WmsMapLayersProperty extends ExpressionProperty {
 
   private final StandardWmsMapComponent component;

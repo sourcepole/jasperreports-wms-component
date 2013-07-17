@@ -16,6 +16,9 @@ import java.beans.PropertyChangeEvent;
 import net.sf.jasperreports.engine.design.JRDesignComponentElement;
 import net.sf.jasperreports.engine.design.JRDesignElement;
 
+/**
+ * The JRDesignElementWidget representing a WMS map report component.
+ */
 public class WmsMapComponentWidget extends JRDesignElementWidget {
 
   private WmsMapIcon mapIcon = null;
@@ -25,7 +28,7 @@ public class WmsMapComponentWidget extends JRDesignElementWidget {
 
     if (((JRDesignComponentElement) element).getComponent() instanceof StandardWmsMapComponent) {
       StandardWmsMapComponent c = (StandardWmsMapComponent) ((JRDesignComponentElement) element).getComponent();
-      // TODO: fix escaping this reference
+      // TODO: fix escape of reference 'this'?
       c.getEventSupport().addPropertyChangeListener(this);
     }
   }

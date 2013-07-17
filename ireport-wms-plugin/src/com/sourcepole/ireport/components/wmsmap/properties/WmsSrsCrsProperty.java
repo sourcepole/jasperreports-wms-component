@@ -4,6 +4,9 @@ import com.jaspersoft.ireport.designer.sheet.properties.StringProperty;
 import com.jaspersoft.ireport.locale.I18n;
 import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
 
+/**
+ * Property for WMS map SRS/CRS parameter.
+ */
 public class WmsSrsCrsProperty extends StringProperty {
   
   private final StandardWmsMapComponent component;

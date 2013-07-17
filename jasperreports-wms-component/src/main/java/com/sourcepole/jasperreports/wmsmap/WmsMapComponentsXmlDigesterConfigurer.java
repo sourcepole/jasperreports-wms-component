@@ -6,6 +6,9 @@ import net.sf.jasperreports.engine.xml.JRExpressionFactory;
 
 import org.apache.commons.digester.Digester;
 
+/**
+ * Digester parser configuration for WMS map component elements.
+ */
 public class WmsMapComponentsXmlDigesterConfigurer implements
     XmlDigesterConfigurer
 {

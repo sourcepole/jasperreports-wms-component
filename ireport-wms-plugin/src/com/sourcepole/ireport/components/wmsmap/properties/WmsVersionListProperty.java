@@ -8,6 +8,9 @@ import com.sourcepole.jasperreports.wmsmap.WmsVersion;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Property for WMS map service version.
+ */
 public class WmsVersionListProperty extends StringListProperty {
 
   private final StandardWmsMapComponent component;

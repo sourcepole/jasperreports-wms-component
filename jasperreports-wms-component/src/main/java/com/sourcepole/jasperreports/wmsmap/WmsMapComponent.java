@@ -5,6 +5,9 @@ import net.sf.jasperreports.engine.JRExpression;
 import net.sf.jasperreports.engine.component.Component;
 import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 
+/**
+ * Interface for WMS Map component.
+ */
 public interface WmsMapComponent extends Component, JRCloneable {
 
   JRExpression getBBoxExpression();

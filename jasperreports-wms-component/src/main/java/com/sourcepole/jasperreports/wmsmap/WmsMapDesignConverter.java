@@ -8,6 +8,9 @@ import net.sf.jasperreports.engine.convert.ElementIconConverter;
 import net.sf.jasperreports.engine.convert.ReportConverter;
 import net.sf.jasperreports.engine.util.JRImageLoader;
 
+/**
+ * {@link ComponentDesignConverter} for WMS map component elements.
+ */
 public class WmsMapDesignConverter extends ElementIconConverter implements
     ComponentDesignConverter {
 

@@ -5,10 +5,10 @@ import net.sf.jasperreports.engine.JRGenericElementType;
 import com.sourcepole.jasperreports.wmsmap.fill.WmsMapFillComponent;
 
 /**
- * Utility class with constants used by {@link WmsMapFillComponent}.
+ * Utility class with constants used by {@link WmsMapFillComponent} and
+ * {@link ComponentsExtensionsRegistryFactory}.
  */
-public final class WmsMapPrintElement
-{
+public final class WmsMapPrintElement {
   /**
    * The name of WMS map generic elements.
    */

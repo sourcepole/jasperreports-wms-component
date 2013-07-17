@@ -9,6 +9,9 @@ import net.sf.jasperreports.engine.export.JRGridLayout;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterContext;
 
+/**
+ * WMS map element handler to produce XLS report output.
+ */
 public class WmsMapElementXlsHandler implements GenericElementXlsHandler {
   private static final WmsMapElementXlsHandler INSTANCE = new WmsMapElementXlsHandler();
 

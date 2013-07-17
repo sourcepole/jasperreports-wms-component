@@ -22,6 +22,10 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import org.openide.nodes.Sheet;
 import org.openide.util.Lookup;
 
+/**
+ * WMS map element node that creates the appropriate editor sheet to edit map
+ * properties.
+ */
 public class WmsMapElementNode extends ElementNode {
 
   public WmsMapElementNode(JasperDesign jd, JRDesignElement element, Lookup doLkp) {

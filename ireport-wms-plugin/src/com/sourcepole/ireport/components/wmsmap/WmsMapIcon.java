@@ -7,6 +7,9 @@ import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
+/**
+ * Icon to display as a placeholder for WMS map components in report design.
+ */
 public class WmsMapIcon {
 
   private ImageIcon icon = null;

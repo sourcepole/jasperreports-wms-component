@@ -61,8 +61,7 @@ public class WmsMapFillComponent extends BaseFillComponent {
     }
   }
 
-  void evaluateMap(byte evaluation)
-      throws JRException {
+  void evaluateMap(byte evaluation) throws JRException {
     String elementName = fillContext.getComponentElement().getKey();
     int width = fillContext.getComponentElement().getWidth();
     int height = fillContext.getComponentElement().getHeight();

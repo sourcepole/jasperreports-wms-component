@@ -10,8 +10,10 @@ import net.sf.jasperreports.engine.export.ooxml.GenericElementXlsxHandler;
 import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
 import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporterContext;
 
-public class WmsMapElementXlsxHandler implements GenericElementXlsxHandler
-{
+/**
+ * WMS map element handler to produce XLSX report output.
+ */
+public class WmsMapElementXlsxHandler implements GenericElementXlsxHandler {
   private static final WmsMapElementXlsxHandler INSTANCE = new WmsMapElementXlsxHandler();
 
   public static WmsMapElementXlsxHandler getInstance() {

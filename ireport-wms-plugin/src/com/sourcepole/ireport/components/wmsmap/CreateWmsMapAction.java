@@ -9,7 +9,7 @@ import net.sf.jasperreports.engine.design.JRDesignElement;
 import net.sf.jasperreports.engine.design.JasperDesign;
 
 /**
- * WMS Map Action.
+ * WMS map create action invoked when adding a new component to the report.
  */
 public class CreateWmsMapAction extends CreateReportElementAction {
 

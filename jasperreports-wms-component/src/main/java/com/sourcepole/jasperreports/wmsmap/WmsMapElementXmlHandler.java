@@ -6,7 +6,11 @@ import net.sf.jasperreports.engine.export.GenericElementXmlHandler;
 import net.sf.jasperreports.engine.export.JRXmlExporter;
 import net.sf.jasperreports.engine.export.JRXmlExporterContext;
 
+/**
+ * WMS map element handler to produce XML report output.
+ */
 public class WmsMapElementXmlHandler implements GenericElementXmlHandler {
+
   private static final WmsMapElementXmlHandler INSTANCE = new WmsMapElementXmlHandler();
 
   public static WmsMapElementXmlHandler getInstance() {

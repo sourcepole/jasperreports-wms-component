@@ -7,6 +7,9 @@ import com.sourcepole.jasperreports.wmsmap.StandardWmsMapComponent;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Property for WMS map image type.
+ */
 public class WmsMapImageTypeListProperty extends StringListProperty {
 
   StandardWmsMapComponent component = null;

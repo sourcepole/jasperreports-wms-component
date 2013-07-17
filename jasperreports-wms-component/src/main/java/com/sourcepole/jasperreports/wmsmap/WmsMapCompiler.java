@@ -8,6 +8,9 @@ import net.sf.jasperreports.engine.component.ComponentCompiler;
 import net.sf.jasperreports.engine.design.JRVerifier;
 import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 
+/**
+ * {@link ComponentCompiler} implementation for WMS map components.
+ */
 public class WmsMapCompiler implements ComponentCompiler {
 
   @Override

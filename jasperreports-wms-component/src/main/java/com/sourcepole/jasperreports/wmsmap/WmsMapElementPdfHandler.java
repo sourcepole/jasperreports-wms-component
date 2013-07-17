@@ -6,6 +6,9 @@ import net.sf.jasperreports.engine.export.GenericElementPdfHandler;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRPdfExporterContext;
 
+/**
+ * WMS map element handler to produce PDF report output.
+ */
 public class WmsMapElementPdfHandler implements GenericElementPdfHandler {
 
   private static final WmsMapElementPdfHandler INSTANCE = new WmsMapElementPdfHandler();

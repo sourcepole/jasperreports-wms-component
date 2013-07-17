@@ -12,6 +12,10 @@ import net.sf.jasperreports.engine.export.JRGraphics2DExporterContext;
 import net.sf.jasperreports.engine.export.draw.ImageDrawer;
 import net.sf.jasperreports.engine.export.draw.Offset;
 
+/**
+ * WMS map element handler to produce {@link Graphics2D} report output as used
+ * in iReport preview.
+ */
 public class WmsMapElementGraphics2DHandler implements
     GenericElementGraphics2DHandler {
 

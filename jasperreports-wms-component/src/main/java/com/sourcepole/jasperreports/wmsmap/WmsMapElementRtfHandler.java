@@ -6,6 +6,9 @@ import net.sf.jasperreports.engine.export.GenericElementRtfHandler;
 import net.sf.jasperreports.engine.export.JRRtfExporter;
 import net.sf.jasperreports.engine.export.JRRtfExporterContext;
 
+/**
+ * WMS map element handler to produce RTF report output.
+ */
 public class WmsMapElementRtfHandler implements GenericElementRtfHandler {
 
   private static final WmsMapElementRtfHandler INSTANCE = new WmsMapElementRtfHandler();

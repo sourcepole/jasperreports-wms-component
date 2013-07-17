@@ -11,6 +11,9 @@ import net.sf.jasperreports.engine.design.events.JRPropertyChangeSupport;
 import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 import net.sf.jasperreports.engine.util.JRCloneUtils;
 
+/**
+ * Implementation of {@link WmsMapComponent}.
+ */
 public class StandardWmsMapComponent implements WmsMapComponent, Serializable,
     JRChangeEventsSupport {
 

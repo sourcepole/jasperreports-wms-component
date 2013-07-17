@@ -9,6 +9,9 @@ import net.sf.jasperreports.engine.design.JRDesignElement;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import org.openide.util.Lookup;
 
+/**
+ * Factory class for WmsMapElementNode.
+ */
 public class WmsMapElementNodeFactory implements ElementNodeFactory {
 
   @Override

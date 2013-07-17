@@ -11,11 +11,15 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Builder to create WMS request URLs using defined WMS parameters.
+ */
 public class WmsRequestBuilder {
 
   private static final String UTF_8 = "UTF-8";
 
-  private final Map<WmsRequestParameter, String> parameters = new HashMap<WmsRequestParameter, String>();
+  private final Map<WmsRequestParameter, String> parameters =
+      new HashMap<WmsRequestParameter, String>();
 
   public static WmsRequestBuilder createGetMapRequest(String serviceUrl) {
     WmsRequestBuilder builder = new WmsRequestBuilder();
