@@ -21,6 +21,8 @@ The extension supports all JasperReports output formats (HTML, PDF, etc.).
 Install the iReport Plugin
 --------------------------
 
+Download ``com-sourcepole-ireport-wms-*.nbm`` from https://github.com/sourcepole/jasperreports-wms-component/releases
+
 In iReport Designer:
 
 - choose 'Tools' -> 'Plugins' from the menu
@@ -34,7 +36,7 @@ In iReport Designer:
 
   - select tab 'Downloaded'
   - click 'Add Plugins...'
-  - choose the plugin package (``com-sourcepole-ireport-wms.nbm``) from the file system
+  - choose the plugin package (``com-sourcepole-ireport-wms-*.nbm``) from the file system
   - click 'Install'
   - in the dialog that appears, click 'next'
   - check 'Accept License' and click 'install'
@@ -62,41 +64,37 @@ Like with any report element expressions may be used for some of the WMS map par
 
 To use a report parameter, e.g. for BBOX:
 
-1. Create a new report parameter, e.g. MAP_BBOX
-2. Reference this report parameter in the map element's bounding box property using the JasperReports expression syntax: ``$P{MAP_BBOX}``
+1. Create a new report parameter, e.g. MAP_BBOX (default value expression ``"634849.96085766,244281.95484911,635310.33560906,244655.89909163"``)
+2. Reference this report parameter in the map element's bounding box property using the JasperReports expression syntax (``$P{MAP_BBOX}``)
 
 .. image:: src/doc/image/wms_report_parameter.png
 
-When previewing the report in iReport, a prompt is shown to enter the MAP_BBOX parameter (unless the ``Use as a prompt`` option for the report parameter has been unchecked).
+Example:
+
+- WMS URL: ``http://wms.qgiscloud.com/olten/Solarkataster``
+- WMS Version: ``1.3``
+- SRS/CRS: ``EPSG:21781``
+- Bbox: ``$P{MAP_BBOX}``
+- Layers: ``Hintergrund,Kataster``
+- Styles:
+- Image format: ``image/png``
+- Transparent: ``FALSE``
+- URL Parameters: ``"DPI=150"``
+
+When previewing the report in iReport, a prompt is shown to enter the MAP_BBOX parameter (unless the ``Use as a prompt`` option for the report parameter has been unchecked). Sample BBOX: ``634849.96085766,244281.95484911,635310.33560906,244655.89909163``
 
 
 WMS protocol
 ------------
 
-GetMap request example:
+The example above generates the following WMS GetMap request:
 
-http://wms.qgiscloud.com/olten/Solarkataster?SERVICE=WMS&REQUEST=GetMap&LAYERS=Hintergrund,Kataster&FORMAT=image/png&DPI=96&TRANSPARENT=FALSE&VERSION=1.1.1&STYLES=&SRS=EPSG:21781&BBOX=634849.96085766,244281.95484911,635310.33560906,244655.89909163&WIDTH=522&HEIGHT=424
-
-The following WMS parameters can be configured in Jasper Reports:
-
-- WMS_URL: http://wms.qgiscloud.com/olten/Solarkataster
-- LAYERS: Hintergrund,Kataster
-- FORMAT: image/png
-- TRANSPARENT: FALSE
-- VERSION: 1.1.1
-- SRS: EPSG:21781
-- BBOX: 634849.96085766,244281.95484911,635310.33560906,244655.89909163
-- DPI: 96
+http://wms.qgiscloud.com/olten/Solarkataster?SERVICE=WMS&REQUEST=GetMap&VERSION=1.3.0&BBOX=634849.96085766,244281.95484911,635310.33560906,244655.89909163&LAYERS=Hintergrund,Kataster&STYLE=,&CRS=EPSG%3A21781&FORMAT=image/png&HEIGHT=314&WIDTH=338&TRANSPARENT=FALSE&DPI=150
 
 Remarks:
 
 - In WMS version 1.3 the parameter "SRS" has been renamed to "CRS".
-- The DPI parameter is not standardized and vendor dependent. UMN Mapserver uses "MAP_RESOLUTION", GeoServer "FORMAT_OPTIONS=dpi:96"
-
-Some of the parameters are usually configured with variables which are passed on runtime when producing the report:
-
-- LAYERS: Kataster
-- BBOX: 634832.3219783,244391.31590117,635292.6967297,244765.26014369
+- The DPI parameter is not standardized and vendor dependent. QGIS Server uses "DPI", UMN Mapserver "MAP_RESOLUTION" and GeoServer "FORMAT_OPTIONS=dpi:96"
 
 
 JasperReport server
@@ -105,15 +103,16 @@ JasperReport server
 Install the extension in JasperReport server
 --------------------------------------------
 
+Download ``jasperreports-wms-component-*.jar`` from https://github.com/sourcepole/jasperreports-wms-component/releases
+
 Assuming a standard installation of JasperReports server on Apache Tomcat, just copy the extension JAR to the `lib` directory of the web application:
 
-``cp jasperreports-wms-component.jar $TOMCAT_HOME/webapps/jasperserver/WEB-INF/lib``
+``cp jasperreports-wms-component-*.jar $TOMCAT_HOME/webapps/jasperserver/WEB-INF/lib``
 
 
 
 Development
 ===========
-
 
 Building from source
 --------------------
